@@ -19,17 +19,15 @@ public class Combo extends Comp {
         this.setting = setting;
     }
 
-
     @Override
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
         super.mouseClicked(mouseX, mouseY, mouseButton);
         if (isInside(mouseX, mouseY, parent.posX + x - 70, parent.posY + y, parent.posX + x, parent.posY + y + 10) && mouseButton == 0) {
             int max = setting.getOptions().size();
-            if (parent.modeIndex + 1 >= max) {
+            if (parent.modeIndex + 1 >= max)
                 parent.modeIndex = 0;
-            } else {
+            else
                 parent.modeIndex++;
-            }
             setting.setValString(setting.getOptions().get(parent.modeIndex));
         }
     }
