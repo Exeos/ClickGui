@@ -33,5 +33,4 @@ public class CheckBox extends Comp {
             setting.setValBoolean(!setting.getValBoolean());
         }
     }
-
 }
