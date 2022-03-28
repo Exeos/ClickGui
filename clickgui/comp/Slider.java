@@ -51,9 +51,8 @@ public class Slider extends Comp {
 
         double diff = Math.min(l, Math.max(0, mouseX - (parent.posX + x - 70)));
         if (dragging) {
-            if (diff == 0) {
+            if (diff == 0)
                 setting.setValDouble(setting.getMin());
-            }
             else {
                 double newValue = roundToPlace(((diff / l) * (max - min) + min), 1);
                 setting.setValDouble(newValue);
@@ -65,12 +64,10 @@ public class Slider extends Comp {
     }
 
     private double roundToPlace(double value, int places) {
-        if (places < 0) {
+        if (places < 0)
             throw new IllegalArgumentException();
-        }
         BigDecimal bd = new BigDecimal(value);
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
-
 }
