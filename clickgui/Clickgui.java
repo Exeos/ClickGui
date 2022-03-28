@@ -62,18 +62,15 @@ public class Clickgui extends GuiScreen {
             offset += 15;
         }
 
-        for (Comp comp : comps) {
+        for (Comp comp : comps)
             comp.drawScreen(mouseX, mouseY);
-        }
-
     }
 
     @Override
     protected void keyTyped(char typedChar, int keyCode) throws IOException {
         super.keyTyped(typedChar, keyCode);
-        for (Comp comp : comps) {
+        for (Comp comp : comps)
             comp.keyTyped(typedChar, keyCode);
-        }
     }
 
     @Override
@@ -86,17 +83,15 @@ public class Clickgui extends GuiScreen {
         }
         int offset = 0;
         for (Category category : Category.values()) {
-            if (isInside(mouseX, mouseY,posX,posY + 1 + offset,posX + 60,posY + 15 + offset) && mouseButton == 0) {
+            if (isInside(mouseX, mouseY,posX,posY + 1 + offset,posX + 60,posY + 15 + offset) && mouseButton == 0)
                 selectedCategory = category;
-            }
             offset += 15;
         }
         offset = 0;
         for (Module m : Tutorial.INSTANCE.getModuleManager().getModules(selectedCategory)) {
             if (isInside(mouseX, mouseY,posX + 65,posY + 1 + offset,posX + 125,posY + 15 + offset)) {
-                if (mouseButton == 0) {
+                if (mouseButton == 0)
                     m.toggle();
-                }
                 if (mouseButton == 1) {
                     int sOffset = 3;
                     comps.clear();
@@ -120,18 +115,16 @@ public class Clickgui extends GuiScreen {
             }
             offset += 15;
         }
-        for (Comp comp : comps) {
+        for (Comp comp : comps)
             comp.mouseClicked(mouseX, mouseY, mouseButton);
-        }
     }
 
     @Override
     protected void mouseReleased(int mouseX, int mouseY, int state) {
         super.mouseReleased(mouseX, mouseY, state);
         dragging = false;
-        for (Comp comp : comps) {
+        for (Comp comp : comps)
             comp.mouseReleased(mouseX, mouseY, state);
-        }
     }
 
     @Override
@@ -147,5 +140,4 @@ public class Clickgui extends GuiScreen {
     public ScaledResolution getScaledRes() {
         return new ScaledResolution(Minecraft.getMinecraft());
     }
-
 }
